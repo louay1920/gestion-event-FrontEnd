@@ -1,0 +1,38 @@
+<h2> Event List</h2>
+
+<div class="col-sm-3 col-md-3 pull-right">
+<form class="navbar-form navbar-left" role="search">
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search" name="ville" [(ngModel)]="ville" (input)="Search()">
+    </div>
+</form>
+</div>
+
+<br/>
+
+
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th> Nom</th>
+            <th> Ville</th>
+            <th> Type</th>
+            <th> Date</th>
+            <th> action </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let event of events" >
+            <td> {{ event.nom }} </td>
+            <td> {{ event.ville }} </td>
+            <td> {{ event.type }} </td>
+            <td> {{ event.date }} </td>
+          
+            <td>
+                <button class = "btn btn-info" (click) = createInscription(event.id)> Inscrire</button>
+                <button class = "btn btn-danger" style="margin-left: 10px" (click) = createComment(event.id)> Commenter</button>
+                <button class = "btn btn-info" style="margin-left: 10px" (click) = createEvaluation(event.id)> Evaluer</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
